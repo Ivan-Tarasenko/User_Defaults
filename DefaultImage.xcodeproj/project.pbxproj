@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A510772293C701B0027BC88 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A510771293C701B0027BC88 /* ViewModel.swift */; };
 		1A55E74B293A367900A51CDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E74A293A367900A51CDB /* AppDelegate.swift */; };
 		1A55E74D293A367900A51CDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E74C293A367900A51CDB /* SceneDelegate.swift */; };
 		1A55E74F293A367900A51CDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E74E293A367900A51CDB /* ViewController.swift */; };
@@ -15,9 +16,12 @@
 		1A55E764293A3F2D00A51CDB /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E763293A3F2D00A51CDB /* MainContentView.swift */; };
 		1A55E766293B6CF300A51CDB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E765293B6CF300A51CDB /* Model.swift */; };
 		1A55E768293B70FC00A51CDB /* ApplyableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E767293B70FC00A51CDB /* ApplyableProtocol.swift */; };
+		1A55E76B293C35C900A51CDB /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E76A293C35C900A51CDB /* Resources.swift */; };
+		1A55E76D293C3BA300A51CDB /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A55E76C293C3BA300A51CDB /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A510771293C701B0027BC88 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1A55E747293A367900A51CDB /* DefaultImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DefaultImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A55E74A293A367900A51CDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A55E74C293A367900A51CDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		1A55E763293A3F2D00A51CDB /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		1A55E765293B6CF300A51CDB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		1A55E767293B70FC00A51CDB /* ApplyableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyableProtocol.swift; sourceTree = "<group>"; };
+		1A55E76A293C35C900A51CDB /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		1A55E76C293C3BA300A51CDB /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				1A55E753293A367B00A51CDB /* Assets.xcassets */,
+				1A55E76A293C35C900A51CDB /* Resources.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -109,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				1A55E765293B6CF300A51CDB /* Model.swift */,
+				1A55E76C293C3BA300A51CDB /* UserDefaults.swift */,
+				1A510771293C701B0027BC88 /* ViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,8 +201,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A55E766293B6CF300A51CDB /* Model.swift in Sources */,
+				1A510772293C701B0027BC88 /* ViewModel.swift in Sources */,
 				1A55E768293B70FC00A51CDB /* ApplyableProtocol.swift in Sources */,
+				1A55E76B293C35C900A51CDB /* Resources.swift in Sources */,
 				1A55E74F293A367900A51CDB /* ViewController.swift in Sources */,
+				1A55E76D293C3BA300A51CDB /* UserDefaults.swift in Sources */,
 				1A55E764293A3F2D00A51CDB /* MainContentView.swift in Sources */,
 				1A55E74B293A367900A51CDB /* AppDelegate.swift in Sources */,
 				1A55E74D293A367900A51CDB /* SceneDelegate.swift in Sources */,

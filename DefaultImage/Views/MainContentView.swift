@@ -11,13 +11,22 @@ protocol MainContentViewProtocol: AnyObject {}
 
 final class MainContentView: UIView, MainContentViewProtocol {
 
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
-    }()
+    var saveSegment: SaveSegmentProtorol = SaveSegment()
+    var model: ThemeProtocol = Theme()
 
-    private let segmentedController = UISegmentedControl().apply {
-        $0.backgroundColor = .blue
+    let imageView = UIImageView()
+
+    private let segmentedController = UISegmentedControl(items: ["", "", ""]).apply {
+        $0.setTitle(R.Title.system, forSegmentAt: 0)
+        $0.setTitle(R.Title.light, forSegmentAt: 1)
+        $0.setTitle(R.Title.dark, forSegmentAt: 2)
+        $0.backgroundColor = .white
+        $0.layer.borderWidth = 0.5
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.cornerRadius = 8
+//        $0.backgroundColor = R.Color.Syslem.controller
+//        $0.selectedSegmentTintColor = R.Color.Syslem.swicher
+//        $0.tintColor = R.Color.Syslem.tintColor
     }
 
 
@@ -25,25 +34,98 @@ final class MainContentView: UIView, MainContentViewProtocol {
         super.init(frame: frame)
         configereView()
         makeConstraints()
+        addTarget()
+        setSavedSettings()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-   private func configereView() {
+    @objc private func segmentPressed(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            saveSegment.segment = sender.selectedSegmentIndex
+            setSystemTheme()
+        case 1:
+            saveSegment.segment = sender.selectedSegmentIndex
+            setLightTheme()
+        case 2:
+            saveSegment.segment = sender.selectedSegmentIndex
+            setDarkTheme()
+        default:
+            break
+        }
+    }
+}
+
+private extension MainContentView {
+
+
+
+    func configereView() {
         backgroundColor = .white
-       addSubview(segmentedController)
+        addSubview(segmentedController)
+        addSubview(imageView)
+        segmentedController.selectedSegmentIndex = saveSegment.segment ?? 0
     }
 
-    private func makeConstraints() {
+    func addTarget() {
+        segmentedController.addTarget(self, action: #selector(segmentPressed(sender: )), for: .valueChanged)
+    }
+
+    func setSystemTheme() {
+        backgroundColor = model.systemTheme.background
+        imageView.image = model.systemTheme.image
+        segmentedController.backgroundColor = R.Color.Syslem.controller
+        segmentedController.selectedSegmentTintColor = R.Color.Syslem.swicher
+        segmentedController.tintColor = R.Color.Syslem.tintColor
+
+    }
+
+    func setLightTheme() {
+        backgroundColor = model.lightTheme.background
+        imageView.image = model.lightTheme.image
+        segmentedController.backgroundColor = R.Color.Light.controller
+        segmentedController.selectedSegmentTintColor = R.Color.Light.swicher
+        segmentedController.tintColor = R.Color.Light.tintColor
+    }
+
+    func setDarkTheme() {
+        backgroundColor = model.darkTheme.background
+        imageView.image = model.darkTheme.image
+        segmentedController.backgroundColor = R.Color.Dark.controller
+        segmentedController.selectedSegmentTintColor = R.Color.Dark.swicher
+        segmentedController.tintColor = R.Color.Dark.tintColor
+    }
+
+    func setSavedSettings() {
+        switch segmentedController.selectedSegmentIndex {
+        case 0:
+            setSystemTheme()
+        case 1:
+            setLightTheme()
+        case 2:
+            setDarkTheme()
+        default:
+            break
+        }
+    }
+
+    func makeConstraints() {
         segmentedController.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            segmentedController.widthAnchor.constraint(equalToConstant: 200),
-            segmentedController.heightAnchor.constraint(equalToConstant: 60),
+            segmentedController.widthAnchor.constraint(equalToConstant: 220),
+            segmentedController.heightAnchor.constraint(equalToConstant: 35),
             segmentedController.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            segmentedController.topAnchor.constraint(equalTo: self.topAnchor, constant: 100)
+            segmentedController.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+
+            imageView.widthAnchor.constraint(equalToConstant: 250),
+            imageView.heightAnchor.constraint(equalToConstant: 250),
+            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: segmentedController.topAnchor, constant: 100)
         ])
     }
 }

@@ -17,7 +17,6 @@ final class ViewController<ContentView: MainContentViewProtocol>: UIViewControll
 
     init(contentView: ContentView) {
         self.contentView = contentView
-
         super .init(nibName: nil, bundle: nil)
     }
 
@@ -28,7 +27,5 @@ final class ViewController<ContentView: MainContentViewProtocol>: UIViewControll
     override func loadView() {
         view = contentView as? UIView
     }
-
-
 }
 
