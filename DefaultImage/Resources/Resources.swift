@@ -16,19 +16,19 @@ enum R {
             static let system = UIColor(named: "Theme")
             static let swicher = UIColor(named: "SegmentedSwicher")
             static let controller = UIColor(named: "SegmentedControl")
-            static let tintColor = UIColor(named: "SegmentTitle")
+            static let textColor = UIColor(named: "SegmentTitle")
         }
 
         enum Light {
             static let swicher = UIColor(named: "LightSwicher")
             static let controller = UIColor(named: "LightControl")
-            static let tintColor = UIColor(named: "LightTitle")
+            static let textColor = UIColor(named: "LightTitle")
         }
 
         enum Dark {
             static let swicher = UIColor(named: "DarkSwicher")
             static let controller = UIColor(named: "DarkControl")
-            static let tintColor = UIColor(named: "DarkTitle")
+            static let textColor = UIColor(named: "DarkTitle")
         }
     }
 

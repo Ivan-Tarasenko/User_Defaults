@@ -21,12 +21,8 @@ final class MainContentView: UIView, MainContentViewProtocol {
         $0.setTitle(R.Title.light, forSegmentAt: 1)
         $0.setTitle(R.Title.dark, forSegmentAt: 2)
         $0.backgroundColor = .white
-        $0.layer.borderWidth = 0.5
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.cornerRadius = 8
-//        $0.backgroundColor = R.Color.Syslem.controller
-//        $0.selectedSegmentTintColor = R.Color.Syslem.swicher
-//        $0.tintColor = R.Color.Syslem.tintColor
     }
 
 
@@ -67,7 +63,6 @@ private extension MainContentView {
         backgroundColor = .white
         addSubview(segmentedController)
         addSubview(imageView)
-        segmentedController.selectedSegmentIndex = saveSegment.segment ?? 0
     }
 
     func addTarget() {
@@ -79,8 +74,7 @@ private extension MainContentView {
         imageView.image = model.systemTheme.image
         segmentedController.backgroundColor = R.Color.Syslem.controller
         segmentedController.selectedSegmentTintColor = R.Color.Syslem.swicher
-        segmentedController.tintColor = R.Color.Syslem.tintColor
-
+        segmentedController.setTitleTextAttributes(model.setAtrebutesTitleColor(color: R.Color.Syslem.textColor!), for: .normal)
     }
 
     func setLightTheme() {
@@ -88,7 +82,7 @@ private extension MainContentView {
         imageView.image = model.lightTheme.image
         segmentedController.backgroundColor = R.Color.Light.controller
         segmentedController.selectedSegmentTintColor = R.Color.Light.swicher
-        segmentedController.tintColor = R.Color.Light.tintColor
+        segmentedController.setTitleTextAttributes(model.setAtrebutesTitleColor(color: R.Color.Light.textColor!), for: .normal)
     }
 
     func setDarkTheme() {
@@ -96,10 +90,11 @@ private extension MainContentView {
         imageView.image = model.darkTheme.image
         segmentedController.backgroundColor = R.Color.Dark.controller
         segmentedController.selectedSegmentTintColor = R.Color.Dark.swicher
-        segmentedController.tintColor = R.Color.Dark.tintColor
+        segmentedController.setTitleTextAttributes(model.setAtrebutesTitleColor(color: R.Color.Dark.textColor!), for: .normal)
     }
 
     func setSavedSettings() {
+        segmentedController.selectedSegmentIndex = saveSegment.segment ?? 0
         switch segmentedController.selectedSegmentIndex {
         case 0:
             setSystemTheme()
